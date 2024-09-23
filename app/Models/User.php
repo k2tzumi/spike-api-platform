@@ -4,11 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use ApiPlatform\Metadata\ApiResource;
+use App\Http\Requests\UserFormRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[ApiResource]
+#[ApiResource(
+    rules: UserFormRequest::class,
+)]
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
